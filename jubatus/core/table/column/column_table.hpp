@@ -35,7 +35,7 @@
 #include "../storage_exception.hpp"
 #include "bit_vector.hpp"
 #include "column_type.hpp"
-#include "columns.hpp"
+#include "abstract_column.hpp"
 #include "owner.hpp"
 
 namespace jubatus {
@@ -237,7 +237,7 @@ class column_table {
     os << "total size:" << tbl.tuples_ << std::endl;
     os << "types: vesions|";
     for (size_t j = 0; j < tbl.columns_.size(); ++j) {
-      os << tbl.columns_[j].type().type_as_string() << "\t|";
+      os << tbl.columns_[j].type() << "\t|";
     }
     os << std::endl;
     for (uint64_t i = 0; i < tbl.tuples_; ++i) {
